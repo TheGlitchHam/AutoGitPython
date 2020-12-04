@@ -35,7 +35,7 @@ def githubInit():
         g.get_gitignore_templates()
         gitignore_tpl_name = input("Enter Template name (e.g. Python, Ruby)")
 
-    g.get_user().create_repo(name=repo_name, private=priv_bool, auto_init=init_bool, gitignore_template=gitignore_tpl_name, description=input("Enter a description: "))
+    g.get_user().create_repo(name=repo_name, private=priv_bool, auto_init=init_bool, gitignore_template=gitignore_tpl_name, description=input("Enter a description: "), bra)
 
 
 if __name__ == "__main__":
