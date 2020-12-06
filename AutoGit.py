@@ -9,6 +9,7 @@ def githubInit():
     creds = {}
     priv_bool = False
     init_bool = False
+    gitignore_tpl_name = ""
 
     creds["username"] = input("Please Enter a username")
 
@@ -16,6 +17,7 @@ def githubInit():
         with open("token", "r") as f:
             creds["token"] = f.read()
     except:
+        
         creds["token"] = input("Please Enter a token")
 
 
@@ -35,7 +37,7 @@ def githubInit():
         g.get_gitignore_templates()
         gitignore_tpl_name = input("Enter Template name (e.g. Python, Ruby)")
 
-    g.get_user().create_repo(name=repo_name, private=priv_bool, auto_init=init_bool, gitignore_template=gitignore_tpl_name, description=input("Enter a description: "), bra)
+    g.get_user().create_repo(name=repo_name, private=priv_bool, auto_init=init_bool, gitignore_template=gitignore_tpl_name, description=input("Enter a description: "))
 
 
 if __name__ == "__main__":
