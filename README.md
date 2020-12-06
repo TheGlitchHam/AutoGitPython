@@ -14,3 +14,6 @@ pip install -r requirements.txt
 ```
 
 ### Usage:
+
+You need to have a valid GitHub Token to access github.
+Either enter it manually, or put it into a file called "token" (without file ending) into the same directory as the Python Script
