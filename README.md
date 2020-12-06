@@ -2,8 +2,8 @@ Small Python Script for automatically create a new GitHub Repo for you Projects 
 
 ### Requierements:
 
-Python (3 or higher)
-pip
+- Python (3 or higher)
+- pip
 
 ### Setup:
 
