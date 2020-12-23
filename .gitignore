@@ -62,3 +62,5 @@ venv.bak/
 #token file
 token
 todo.md
+#default username file
+username
