@@ -21,9 +21,10 @@ pip install -r requirements.txt
 python AutoGit.py
 ```
 
-You need to have a valid GitHub Token to access github. You can create an access token on your GitHub-profile settings at 
+You need to have a valid GitHub Token to access github. You can create an access token on your GitHub-profile settings at
+
 > `settings\developer settings\personal access token`
 
 or see the respective [GitHub documentation](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token).
 
-Either enter it manually, or put it into a file called `token` (without file ending) into the same directory as the Python Script, the same is possible with a default username in a file called `username`.
+Either enter it manually, or put it into a file called `token` (without file ending) into the same directory as the Python Script
