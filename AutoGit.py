@@ -10,7 +10,7 @@ def getGitToken():
     # get GitToken from a file or user input
     try:
         with open("token", "r") as f:
-            return = f.read()
+            return f.read()
     except:
         token = input("Please Enter a token: ")
         if input("Do you want to safe the token for future use? Type y/n: ").lower() == "y":
