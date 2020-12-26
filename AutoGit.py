@@ -20,7 +20,7 @@ def getGitToken():
 
 
 def getGitUsername():
-     try:
+    try:
         with open("username", "r") as f:
             return f.read()
     except:
