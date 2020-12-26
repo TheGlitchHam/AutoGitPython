@@ -33,13 +33,31 @@ def getGitUsername():
 
 # def getCreds():
 
+def createConf():
+    conf = {}
+
+    if input("Do you want to build a private repo? Type y/n: ").lower() == "y":
+        conf["private"] = True
+
+    if input("Do you want to init the repo? y/n: ").lower() == "y":
+        conf["init"] = True
+
+    if input("Do you want to use a gitignore template? y/n: ").lower() == "y":
+        g.get_gitignore_templates()
+        conf["gitignore"] = input(
+            "Enter Template name (e.g. Python, Ruby): ")
+    else:
+        conf["gitignore"] = ""
+
+    # if input("Do you want to safe the current config? Type y/n: ").lower() == "y":
+    #     pass
+
+    return conf
+
 
 def githubInit():
 
     creds = {}
-    priv_bool = False
-    init_bool = False
-    gitignore_tpl_name = ""
 
     creds["token"] = getGitToken()
     creds["username"] = getGitUsername()
@@ -48,23 +66,11 @@ def githubInit():
 
     repo_name = input("Please enter a repo name: ")
 
-    if input("Do you want to build a private repo? Type y/n: ").lower() == "y":
-        priv_bool = True
-
-    if input("Do you want to init the repo? y/n: ").lower() == "y":
-        init_bool = True
-
-    if input("Do you want to use a gitignore template? y/n: ").lower() == "y":
-        g.get_gitignore_templates()
-        gitignore_tpl_name = input(
-            "Enter Template name (e.g. Python, Ruby): ")
-
-    if input("Do you want to safe the current config? Type y/n: ").lower() == "y":
-        pass
+    conf = createConf()
 
     try:
-        g.get_user().create_repo(name=repo_name, private=priv_bool, auto_init=init_bool,
-                                 gitignore_template=gitignore_tpl_name, description=input("Enter a description: "))
+        g.get_user().create_repo(name=repo_name, private=conf["private"], auto_init=conf["init"],
+                                 gitignore_template=conf["gitignore"], description=input("Enter a description: "))
 
     except Exception as e:
         print("Something went wrong, exception: " + str(e))
