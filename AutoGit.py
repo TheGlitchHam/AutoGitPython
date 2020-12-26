@@ -49,8 +49,9 @@ def createConf():
     else:
         conf["gitignore"] = ""
 
-    # if input("Do you want to safe the current config? Type y/n: ").lower() == "y":
-    #     pass
+    if input("Do you want to safe the current config? Type y/n: ").lower() == "y":
+        f = open("conf", "w")
+        print("config saved")
 
     return conf
 
