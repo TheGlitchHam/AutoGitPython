@@ -8,12 +8,30 @@ def main():
 
 def getGitToken():
     # get GitToken from a file or user input
+    try:
+        with open("token", "r") as f:
+            return = f.read()
+    except:
+        token = input("Please Enter a token: ")
+        if input("Do you want to safe the token for future use? Type y/n: ").lower() == "y":
+            f = open("token", "w")
+            f.write(token)
+        return token
 
 
 def getGitUsername():
+     try:
+        with open("username", "r") as f:
+            return f.read()
+    except:
+        username = input("Please Enter a username: ")
+        if input("Do you want to safe the username for future use? Type y/n: ").lower() == "y":
+            f = open("username", "w")
+            f.write(username)
+        return username
 
 
-def getCreds():
+# def getCreds():
 
 
 def githubInit():
@@ -23,29 +41,8 @@ def githubInit():
     init_bool = False
     gitignore_tpl_name = ""
 
-    #######################
-
-    try:
-        with open("token", "r") as f:
-            creds["token"] = f.read()
-    except:
-        creds["token"] = input("Please Enter a token: ")
-        if input("Do you want to safe the token for future use? Type y/n: ").lower() == "y":
-            f = open("token", "w")
-            f.write(creds["token"])
-
-    #######################
-
-    try:
-        with open("username", "r") as f:
-            creds["username"] = f.read()
-    except:
-        creds["username"] = input("Please Enter a username: ")
-        if input("Do you want to safe the username for future use? Type y/n: ").lower() == "y":
-            f = open("username", "w")
-            f.write(creds["username"])
-
-    #######################
+    creds["token"] = getGitToken()
+    creds["username"] = getGitUsername()
 
     g = Github(creds["token"])
 
