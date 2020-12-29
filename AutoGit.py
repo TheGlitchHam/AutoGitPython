@@ -38,7 +38,7 @@ def getGitUsername():
 
 
 def createConf():
-    conf = {}
+    conf = {"private": False, "init": False, "gitignore": ""}
 
     if input("Use existing config? Type y/n: ").lower() == "y":
         try:
@@ -59,8 +59,6 @@ def createConf():
             getGithubInstance().get_gitignore_templates()
             conf["gitignore"] = input(
                 "Enter Template name (e.g. Python, Ruby): ")
-        else:
-            conf["gitignore"] = ""
 
         if input("Do you want to safe the current config? Type y/n: ").lower() == "y":
             json.dump(conf, open("conf", "w"))
@@ -75,12 +73,12 @@ def githubInit():
 
     conf = createConf()
 
-    try:
-        getGithubInstance().get_user().create_repo(name=repo_name, private=conf["private"], auto_init=conf["init"],
-                                                   gitignore_template=conf["gitignore"], description=input("Enter a description: "))
+   # try:
+    getGithubInstance().get_user().create_repo(name=repo_name, private=conf["private"], auto_init=conf["init"],
+                                               gitignore_template=conf["gitignore"], description=input("Enter a description: "))
 
-    except Exception as e:
-        print("Something went wrong, exception: " + str(e))
+    # except Exception as e:
+    #     print("Something went wrong, exception: " + str(e))
 
 
 if __name__ == "__main__":
