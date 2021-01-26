@@ -12,6 +12,8 @@ Small Python Script for automatically create a new GitHub Repo for you Projects 
 ```bash
 git clone "https://github.com/TheGlitchHam/AutoGitPython.git"
 cd AutoGitPython
+python3 -m venv env (creates virtual environment)
+.\env\Scripts\activate (activates it)
 pip install -r requirements.txt
 ```
 
